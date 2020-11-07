@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Pluralsight\\C# Path\\C# Development Fundamentals\\Collections\\Collections\\Collections\\Collections.csproj",
+      "projectUniqueName": "D:\\Pluralsight\\C# Path\\C# Development Fundamentals\\Collections\\Collections\\Collections.csproj",
       "projectName": "Collections",
-      "projectPath": "D:\\Pluralsight\\C# Path\\C# Development Fundamentals\\Collections\\Collections\\Collections\\Collections.csproj",
+      "projectPath": "D:\\Pluralsight\\C# Path\\C# Development Fundamentals\\Collections\\Collections\\Collections.csproj",
       "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-      "outputPath": "D:\\Pluralsight\\C# Path\\C# Development Fundamentals\\Collections\\Collections\\Collections\\obj\\",
+      "outputPath": "D:\\Pluralsight\\C# Path\\C# Development Fundamentals\\Collections\\Collections\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
