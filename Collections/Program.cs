@@ -6,15 +6,15 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            string filePath = @"asdasd.csv";
+            string filePath = @"D:\Pluralsight\C# Path\C# Development Fundamentals\Collections\Collections\CountriesInfo.csv";
 
             CsvReader reader = new CsvReader(filePath);
 
             Country[] countries = reader.ReadFirstNCountries(10);
 
-            foreach (var countrie in countries)
+            foreach (var country in countries)
             {
-                Console.WriteLine($"{Country.Population}: {Country.Name}");
+                Console.WriteLine($"{(country.Name).PadRight(15)} : {FormatPopulation.PopulationFormat(country.Population).PadLeft(15)}");
             }
         }
     }
