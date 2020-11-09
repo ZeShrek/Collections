@@ -14,6 +14,7 @@ namespace Collections
             this._csvFilePath = cvCsvFilePath;
         }
 
+        //with array
         public Country[] ReadFirstNCountries(int nCountries)
         {
             Country[] countries = new Country[nCountries];
@@ -26,6 +27,27 @@ namespace Collections
                 {
                     string csvLine = sr.ReadLine();
                     countries[i] = ReadCountryFromCsvFile(csvLine);
+                }
+            }
+
+            return countries;
+        }
+        
+
+        //with list<T>
+        public List<Country> ReadAllCountries()
+        {
+            List<Country> countries = new List<Country>();
+
+            using (StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                sr.ReadLine();
+
+                string csvLine;
+
+                while ((csvLine = sr.ReadLine()) != null)
+                {
+                    countries.Add(ReadCountryFromCsvFile(csvLine)); 
                 }
             }
 
