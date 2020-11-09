@@ -54,6 +54,28 @@ namespace Collections
             return countries;
         }
 
+        //with Dictionary
+        //with list<T>
+        public Dictionary<string, Country> ReadAllCountriesDictionary()
+        {
+            var countries = new Dictionary<string, Country>();
+
+            using (StreamReader sr = new StreamReader(_csvFilePath))
+            {
+                // read header line
+                sr.ReadLine();
+
+                string csvLine;
+                while ((csvLine = sr.ReadLine()) != null)
+                {
+                    Country country = ReadCountryFromCsvFile(csvLine);
+                    countries.Add(country.Code, country);
+                }
+            }
+
+            return countries;
+        }
+
         public Country ReadCountryFromCsvFile(string csvLine)
         {
             string[] parts = csvLine.Split(new char[]{','});
