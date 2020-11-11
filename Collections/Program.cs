@@ -36,7 +36,7 @@ namespace Collections
         public static void WithList(CsvReader reader)
         {
             List<Country> countries = reader.ReadAllCountries();
-
+            reader.RemoveCommaCountries(countries);
             //adding to the end of the list
             Country southAfrica = new Country("South Africa", "ZAF", "Africa", 59_308_690);
             countries.Add(southAfrica);
@@ -68,11 +68,11 @@ namespace Collections
             int maxToDisplay = Math.Min(userInput, countries.Count);
 
             //fisrt to the last
-            //DisplayFirstToLast(countries, maxToDisplay);
+            DisplayFirstToLast(countries, maxToDisplay);
 
 
             //last to the first
-            DisplayLastToFirst(countries, maxToDisplay);
+            //DisplayLastToFirst(countries, maxToDisplay);
 
             Console.WriteLine();
         }
@@ -110,7 +110,7 @@ namespace Collections
 
                 Country country = countries[i];
                 Console.WriteLine(
-                    $"{i + 1} : {(country.Name).PadRight(15)} : {FormatPopulation.PopulationFormat(country.Population).PadLeft(15)}");
+                    $"{i + 1} : {(country.Name).PadRight(30).PadLeft(2)} : {FormatPopulation.PopulationFormat(country.Population).PadLeft(30)}");
             }
         }
 

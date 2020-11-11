@@ -78,14 +78,46 @@ namespace Collections
 
         public Country ReadCountryFromCsvFile(string csvLine)
         {
-            string[] parts = csvLine.Split(new char[]{','});
+            string[] parts = csvLine.Split(',');
+            string name;
+            string code;
+            string region;
+            string populationString;
 
-            string name = parts[0];
-            string code = parts[1];
-            string region = parts[2];
-            int population = int.Parse(parts[3]);
+            switch (parts.Length)
+            {
+                case 4:
+                    name = parts[0];
+                    code = parts[1];
+                    region = parts[2];
+                    populationString = parts[3];
+                    break;
+                case 5:
+                    name = parts[0] + ", " + parts[1];
+                    name = name.Replace("\"", null).Trim();
+                    code = parts[2];
+                    region = parts[3];
+                    populationString = parts[4];
+                    break;
+                default:
+                    throw new Exception($"Can't parse country from csvLine: {csvLine}");
+            }
 
+            int.TryParse(populationString, out int population);
             return new Country(name, code, region, population);
+        }
+
+        public void RemoveCommaCountries(List<Country> countries)
+        {
+            /*for (int i = countries.Count; i >= 0; i--)
+            {
+                if (countries[i].Name.Contains(","))
+                {
+                    countries.RemoveAt(i);
+                }
+            }*/
+
+            countries.RemoveAll(x => x.Name.Contains(","));
         }
     }
 }
